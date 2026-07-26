@@ -1,10 +1,10 @@
-# osu!lazer Requests
+# osu! Requests
 
-A lightweight Windows desktop utility for managing osu!lazer beatmap requests from Twitch chat and delivering accepted requests directly to a connected osu!lazer account.
+A lightweight Windows desktop utility for managing osu! beatmap requests from Twitch chat and delivering accepted requests directly to a connected osu! account.
 
 > ## ⚠️ Windows test-build notice
 >
-> **osu!lazer Requests is currently undergoing Microsoft Store certification.**
+> **osu! Requests is currently undergoing Microsoft Store certification.**
 >
 > The current GitHub `.exe` is an **unsigned test build**. Windows Smart App Control or Microsoft Defender SmartScreen may therefore warn that the app is unrecognized or block it.
 >
@@ -16,9 +16,9 @@ A lightweight Windows desktop utility for managing osu!lazer beatmap requests fr
 
 ---
 
-## What osu!lazer Requests does
+## What osu! Requests does
 
-osu!lazer Requests connects to a Twitch channel, watches chat for supported osu! beatmap links, adds valid requests to a queue, retrieves beatmap information, detects requested mods, and automatically sends accepted requests to the connected osu! recipient account through osu! chat.
+osu!l Requests connects to a Twitch channel, watches chat for supported osu! beatmap links, adds valid requests to a queue, retrieves beatmap information, detects requested mods, and automatically sends accepted requests to the connected osu! recipient account through osu! chat.
 
 The desktop app is designed for streamers who want a simple request workflow without needing viewers to use a separate website or form.
 
@@ -28,7 +28,7 @@ The desktop app is designed for streamers who want a simple request workflow wit
 
 ### Twitch map requests
 
-- Automatic detection of osu!lazer beatmap links in Twitch chat
+- Automatic detection of osu! beatmap links in Twitch chat
 - Automatic request queue with a highlighted current request
 - Exact beatmap difficulty detection when a difficulty-specific link is provided
 - Duplicate-request protection with Twitch chat feedback
@@ -41,9 +41,9 @@ The desktop app is designed for streamers who want a simple request workflow wit
 - Current request remains highlighted at the top of History
 - `NEXT`, `COPY LINK`, `HISTORY`, and `CLEAR` controls
 
-### osu!lazer delivery
+### osu! delivery
 
-- Connect the receiving osu!lazer account through browser-based OAuth
+- Connect the receiving osu! account through browser-based OAuth
 - Accepted Twitch requests are delivered automatically through osu! chat
 - Requests are sent by the relay sender account `valocookie`
 - The receiving user's osu! OAuth token is used only to identify the authorized account and is not retained by the relay
@@ -67,7 +67,7 @@ When available, osu! Requests displays:
 
 ### Requested mods
 
-osu!lazer Requests detects common requested mods from Twitch chat and keeps them attached to the request.
+osu! Requests detects common requested mods from Twitch chat and keeps them attached to the request.
 
 Examples include:
 
@@ -156,15 +156,15 @@ Accepted requests are automatically sent to the connected osu! account.
 
 ## Privacy and account connections
 
-osu!lazer Requests connects to Twitch and osu!lazer through OAuth.
+osu! Requests connects to Twitch and osu! through OAuth.
 
 The desktop application stores its connection/session information locally for the signed-in Windows user.
 
-The public relay validates Twitch identity, links it to the authenticated receiving osu!lazer account, and forwards accepted beatmap requests to that verified recipient.
+The public relay validates Twitch identity, links it to the authenticated receiving osu! account, and forwards accepted beatmap requests to that verified recipient.
 
-The receiving user's osu!lazer access token is used only long enough to identify the authorized account and is not stored by the relay.
+The receiving user's osu! access token is used only long enough to identify the authorized account and is not stored by the relay.
 
-The relay may store limited account/session information required to provide the service, such as Twitch user ID/login, connected osu!lazer user ID/username, hashed relay-session identifiers, expiry information, and rate-limit state.
+The relay may store limited account/session information required to provide the service, such as Twitch user ID/login, connected osu! user ID/username, hashed relay-session identifiers, expiry information, and rate-limit state.
 
 The project does not sell personal information or use it for advertising.
 
@@ -180,4 +180,4 @@ GitHub remains the home of the source code and development/test releases. Once M
 
 ## Disclaimer
 
-osu!lazer Requests is an independent utility and is not affiliated with or endorsed by Twitch Interactive, Inc. or ppy Pty Ltd.
+osu! Requests is an independent utility and is not affiliated with or endorsed by Twitch Interactive, Inc. or ppy Pty Ltd.
