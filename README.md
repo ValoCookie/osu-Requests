@@ -1,3 +1,15 @@
+⚠️ Windows download notice
+
+osu! Requests is currently undergoing Microsoft Store certification.
+
+The current GitHub .exe is an unsigned test build, so Windows Smart App Control or SmartScreen may warn that the app is unrecognized or block it.
+
+This does not automatically mean the app contains malware; the GitHub build simply does not yet have Microsoft Store signing/reputation.
+
+For now, only use builds downloaded directly from this official repository. Do not disable Windows security features system-wide just to run the app.
+
+Once Microsoft Store certification is complete, the recommended Windows installation will be the signed Microsoft Store version.
+
 ## Features
 
 ### Map Requests
