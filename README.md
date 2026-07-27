@@ -100,8 +100,6 @@ The receiving osu! account is connected through OAuth in the browser.
 
 Accepted requests are then sent automatically through osu! chat by the relay account `valocookie`.
 
-That means there is no local server to set up and no osu! client secret for users to configure.
-
 Because the actual delivery happens through osu! chat rather than by controlling the game window, the app isn't tied specifically to one desktop client and is intended to work with both osu!stable and osu!lazer.
 
 ---
