@@ -130,7 +130,7 @@ Once it is approved, the Store version will become the recommended download.
 
 ### GitHub build
 
-The latest `.exe` can still be used for testing in the meantime.
+The latest `.exe` can still be used.
 
 Just keep in mind that the current GitHub build is unsigned, so Windows may treat it as an unknown application.
 
