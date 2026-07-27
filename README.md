@@ -14,7 +14,7 @@ Until that is approved, the GitHub `.exe` is an unsigned test build. Because of 
 
 That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
 
-Please only download builds from this repository.
+Please only download builds from this page.
 
 I don't recommend turning off Windows security features just to run the test version. Once the Microsoft Store release is approved, that will become the normal/recommended way to install the app.
 
