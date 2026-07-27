@@ -154,8 +154,6 @@ The receiving osu! token is used to identify the account you authorized and is n
 
 The relay stores only the limited account/session information it needs to connect your Twitch identity to the osu! account receiving requests and to prevent abuse.
 
-There are no ads, profiling, or sale of personal information.
-
 ---
 
 ## Project status
@@ -170,6 +168,6 @@ Bug reports and feedback are very welcome.
 
 ## Disclaimer
 
-osu! Requests is an independent community project.
+osu! Requests is an independent project.
 
 It is not affiliated with or endorsed by ppy Pty Ltd., osu!, Twitch, or Twitch Interactive, Inc.
