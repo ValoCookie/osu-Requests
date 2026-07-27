@@ -4,7 +4,7 @@ A small Windows app I made to handle osu! map requests from Twitch chat without 
 
 The idea is pretty simple: connect Twitch, connect the osu! account where you want to receive requests, and leave the app running. When someone sends a supported beatmap link in chat, osu! Requests picks it up, adds it to the queue, grabs the map information, and sends the request to you through osu! chat.
 
-It started as something I wanted for a friends stream and slowly turned into a proper little desktop app.
+It started as something I wanted to make for a friends stream and slowly turned into a proper little desktop app.
 
 ## ⚠️ Current Windows build
 
