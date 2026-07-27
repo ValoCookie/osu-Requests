@@ -10,13 +10,13 @@ It started as something I wanted to make for a friends stream and slowly turned 
 
 The Microsoft Store version is currently being prepared for certification.
 
-Until that is approved, the GitHub `.exe` is an unsigned test build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
+Until that is approved, the GitHub `.exe` is an unsigned build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
 
 That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
 
 Please only download builds from this page.
 
-I don't recommend turning off Windows security features just to run the test version. Once the Microsoft Store release is approved, that will become the normal/recommended way to install the app.
+I don't recommend turning off Windows security features just to run the app. Once the Microsoft Store release is approved, that will become the normal/recommended way to install the app.
 
 ---
 
