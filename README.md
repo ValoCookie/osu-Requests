@@ -116,8 +116,6 @@ Because the actual delivery happens through osu! chat rather than by controlling
 
 That's basically it.
 
-You do not need Python or a local relay/server to use the compiled Windows version.
-
 ---
 
 ## Download
