@@ -1,116 +1,124 @@
 # osu! Requests
 
-A lightweight Windows desktop utility for managing osu! beatmap requests from Twitch chat and delivering accepted requests directly to a connected osu! account.
+A small Windows app I made to handle osu! map requests from Twitch chat without having to constantly copy links around while streaming.
 
-> ## ⚠️ Windows test-build notice
->
-> **osu! Requests is currently undergoing Microsoft Store certification.**
->
-> The current GitHub `.exe` is an **unsigned test build**. Windows Smart App Control or Microsoft Defender SmartScreen may therefore warn that the app is unrecognized or block it.
->
-> This warning does **not automatically mean Windows detected malware**; the GitHub build simply does not yet have Microsoft Store signing and reputation.
->
-> For now, only use builds downloaded directly from this official repository. **Do not disable Windows security features system-wide just to run osu! Requests.**
->
-> Once Microsoft Store certification is complete, the recommended Windows installation will be the Microsoft Store version, which will be signed through the Store distribution process.
+The idea is pretty simple: connect Twitch, connect the osu! account where you want to receive requests, and leave the app running. When someone sends a supported beatmap link in chat, osu! Requests picks it up, adds it to the queue, grabs the map information, and sends the request to you through osu! chat.
 
----
+It started as something I wanted for my own streams and slowly turned into a proper little desktop app.
 
-## What osu! Requests does
+## ⚠️ Current Windows build
 
-osu!l Requests connects to a Twitch channel, watches chat for supported osu! beatmap links, adds valid requests to a queue, retrieves beatmap information, detects requested mods, and automatically sends accepted requests to the connected osu! recipient account through osu! chat.
+The Microsoft Store version is currently being prepared for certification.
 
-The desktop app is designed for streamers who want a simple request workflow without needing viewers to use a separate website or form.
+Until that is approved, the GitHub `.exe` is an unsigned test build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
+
+That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
+
+Please only download builds from this repository.
+
+I don't recommend turning off Windows security features just to run the test version. Once the Microsoft Store release is approved, that will become the normal/recommended way to install the app.
 
 ---
 
-## Features
+## What it does
 
-### Twitch map requests
+### Map requests
 
-- Automatic detection of osu! beatmap links in Twitch chat
-- Automatic request queue with a highlighted current request
-- Exact beatmap difficulty detection when a difficulty-specific link is provided
-- Duplicate-request protection with Twitch chat feedback
-- Adjustable queue limit from **10 requests to Unlimited**
-- Open or close the request queue at any time without removing existing requests
-- New viewer requests are automatically rejected while the queue is closed
-- Automatic feedback when the queue is full or closed
-- The authenticated streamer can still add their own requests when the queue is closed or full
-- Session request history
-- Current request remains highlighted at the top of History
-- `NEXT`, `COPY LINK`, `HISTORY`, and `CLEAR` controls
+osu! Requests watches your Twitch chat for osu! beatmap links and builds a request queue automatically.
 
-### osu! delivery
+You can:
 
-- Connect the receiving osu! account through browser-based OAuth
-- Accepted Twitch requests are delivered automatically through osu! chat
-- Requests are sent by the relay sender account `valocookie`
-- The receiving user's osu! OAuth token is used only to identify the authorized account and is not retained by the relay
+- open or close requests whenever you need to
+- set a queue limit from 10 to unlimited
+- move to the next request
+- copy the current map link
+- view previous requests
+- clear the queue
+- keep existing requests even after closing submissions
 
-### Map information
+The streamer can still submit a map while the queue is closed or full.
 
-When available, osu! Requests displays:
+Duplicate requests are also caught automatically so the same map doesn't keep getting added.
 
-- Song title and artist
-- Mapper
-- Difficulty name
-- Star rating
-- BPM
-- Map length
-- AR, OD, CS, and HP
-- Max combo
-- Object count
-- Ranking status
-- Genre and language
-- Exact beatmap URL
+### Map info
 
-### Requested mods
+For supported maps, the app can show things like:
 
-osu! Requests detects common requested mods from Twitch chat and keeps them attached to the request.
+- artist and song title
+- mapper
+- difficulty
+- star rating
+- BPM and length
+- AR, OD, CS and HP
+- max combo
+- object count
+- ranking status
+- genre and language
 
-Examples include:
+When someone links a specific difficulty, the app tries to use that exact beatmap instead of just the mapset.
 
-- `+HD`
-- `+DT`
-- `+HR`
-- `+NC`
-- `+FL`
-- combined requests such as `+HDDT`
+### Mods
 
-Mods can be written alongside the beatmap link and are shown in the queue, Twitch feedback, history, and osu! delivery message.
+Viewers can put mods next to their request and the app keeps them attached to the map.
 
-### Twitch integration
+For example:
 
-- Twitch account authorization through the browser
-- Automatic chat confirmation when a request is accepted
-- Requested mods included in confirmation messages
-- Duplicate-request feedback
-- Full-queue feedback
-- Closed-queue feedback
-- `!queue` command for viewers, shows queue size, queue limit, requester order, requested mods, and whether the queue is closed
-- Automatic `/me` queue reminder every **15 minutes** while maps are waiting
-- Optional extra queue reminder that can be adjusted from **10 seconds to 10 minutes**
-- Automatic Twitch reconnection and token refresh
+`+HD`
 
-### Public relay
+`+DT`
 
-The current public version uses a Cloudflare-based relay so users do not need to run a local Python server.
+`HDDT`
 
-The relay uses:
+`DTHD`
 
-- Cloudflare Workers for the public HTTPS API
-- Cloudflare D1 for persistent relay/session data
-- A Cloudflare Durable Object to serialize outgoing osu! messages from the shared sender account
-- Twitch identity validation before recipient sessions or relay requests are accepted
+`HD DT`
 
-Private osu! sender credentials are **not embedded in the public Windows application**.
+`dt hd`
 
-### Application
+The parser is case-insensitive and is meant to be forgiving about how people type combinations.
 
-- Dark-mode desktop interface
-- Standalone Windows application
-- Designed for Twitch streamers and osu! players
+Those mods are shown with the request and are also included when the map is delivered through osu! chat.
+
+### Twitch stuff
+
+The app connects to Twitch through browser authorization.
+
+It also has:
+
+- automatic confirmation when a request is accepted
+- feedback when the queue is closed or full
+- duplicate request messages
+- `!queue`
+- a queue reminder every 15 minutes while requests are waiting
+- an optional extra reminder with a custom interval
+
+`!queue` lets viewers check the current queue without the streamer having to explain it every five minutes. :)
+
+### Sending requests to osu!
+
+The receiving osu! account is connected through OAuth in the browser.
+
+Accepted requests are then sent automatically through osu! chat by the relay account `valocookie`.
+
+That means there is no local server to set up and no osu! client secret for users to configure.
+
+Because the actual delivery happens through osu! chat rather than by controlling the game window, the app isn't tied specifically to one desktop client and is intended to work with both osu!stable and osu!lazer.
+
+---
+
+## Setup
+
+1. Open **osu! Requests**
+2. Connect your Twitch account
+3. Click **CONNECT OSU!**
+4. Log into the osu! account where you want to receive requests
+5. Authorize the connection
+6. Go back to the app
+7. Open the queue and let people start sending maps
+
+That's basically it.
+
+You do not need Python or a local relay/server to use the compiled Windows version.
 
 ---
 
@@ -118,66 +126,54 @@ Private osu! sender credentials are **not embedded in the public Windows applica
 
 ### Microsoft Store
 
-🕒 **Certification in progress**
+**Coming soon**
 
-The Microsoft Store release is currently being reviewed by Microsoft.
+The Windows Store build is currently being prepared for Microsoft certification.
 
-Once certification is complete, the Microsoft Store version will become the recommended way to install osu! Requests on Windows because it will use Microsoft Store signing and distribution.
+Once it is approved, the Store version will become the recommended download.
 
-### GitHub test build
+### GitHub build
 
-The current GitHub `.exe` remains available for testing.
+The latest `.exe` can still be used for testing in the meantime.
 
-Because it is an unsigned executable, Windows may display an unrecognized-app warning, Microsoft Defender SmartScreen warning, or Smart App Control block.
-
-Smart App Control does not provide a per-app **Run anyway** option in every configuration. Some testers may therefore be unable to launch the unsigned GitHub build without changing Windows security settings.
-
-**I do not recommend disabling Windows security features system-wide simply to test the application.**
-
-(But I Myself have it off)
-
-Only download test builds from this official repository.
+Just keep in mind that the current GitHub build is unsigned, so Windows may treat it as an unknown application.
 
 ---
 
-## Basic setup
+## A little about the backend
 
-1. Launch osu! Requests.
-2. Connect your Twitch account through the browser.
-3. Click **CONNECT OSU!**.
-4. Sign in to the osu! account that should receive map requests.
-5. Authorize basic account identification.
-6. Return to osu! Requests.
-7. Open the request queue and let viewers submit supported osu! beatmap links in Twitch chat.
+osu! Requests uses a small Cloudflare-hosted relay to handle the connection between the desktop app and the osu! sender account.
 
-Accepted requests are automatically sent to the connected osu! account.
+The important part for users is that you **do not** have to run any server yourself.
+
+Private sender credentials are not included inside the public Windows app.
 
 ---
 
-## Privacy and account connections
+## Privacy
 
-osu! Requests connects to Twitch and osu! through OAuth.
+The app uses Twitch and osu! OAuth to connect your accounts.
 
-The desktop application stores its connection/session information locally for the signed-in Windows user.
+The receiving osu! token is used to identify the account you authorized and is not kept by the relay afterward.
 
-The public relay validates Twitch identity, links it to the authenticated receiving osu! account, and forwards accepted beatmap requests to that verified recipient.
+The relay stores only the limited account/session information it needs to connect your Twitch identity to the osu! account receiving requests and to prevent abuse.
 
-The receiving user's osu! access token is used only long enough to identify the authorized account and is not stored by the relay.
-
-The relay may store limited account/session information required to provide the service, such as Twitch user ID/login, connected osu! user ID/username, hashed relay-session identifiers, expiry information, and rate-limit state.
-
-The project does not sell personal information or use it for advertising.
+There are no ads, profiling, or sale of personal information.
 
 ---
 
 ## Project status
 
-The public Cloudflare relay is online and the first Microsoft Store package is currently in certification.
+This is still a pretty new project, so I'm actively testing it and fixing weird edge cases as people find them.
 
-GitHub remains the home of the source code and development/test releases. Once Microsoft Store certification is complete, the Store will be the recommended trusted Windows installation channel.
+The public relay is already running. The next major step is getting the Windows build through Microsoft Store certification so people don't have to deal with unsigned-app warnings.
+
+Bug reports and feedback are very welcome.
 
 ---
 
 ## Disclaimer
 
-osu! Requests is an independent utility and is not affiliated with or endorsed by Twitch Interactive, Inc. or ppy Pty Ltd.
+osu! Requests is an independent community project.
+
+It is not affiliated with or endorsed by ppy Pty Ltd., osu!, Twitch, or Twitch Interactive, Inc.
