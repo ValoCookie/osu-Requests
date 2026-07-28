@@ -8,15 +8,15 @@ The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch
 
 ## ⚠️ Current Windows build
 
-The Microsoft Store version is currently in certification.
+The Microsoft Store release has passed certification and is currently being published. Version **1.0.2.0** is the current update build with the latest desktop changes.
 
-In the meantime, the GitHub `.exe` is available, but it is unsigned. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
+The GitHub `.exe` may also be available as an unsigned build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
 
 That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
 
 Please only download builds from this page.
 
-I don't recommend turning off Windows security features just to run the app. Once the Microsoft Store version is approved, that will become the normal/recommended way to install it.
+I don't recommend turning off Windows security features just to run the app. The Microsoft Store version is the normal/recommended install once it is available in your region.
 
 ---
 
@@ -138,6 +138,21 @@ The setting is saved for future launches.
 
 ---
 
+## What's new in 1.0.2.0
+
+- improved Request History with clickable osu! links
+- added per-entry **COPY** buttons
+- previous requests can be reopened without affecting the active queue
+- improved star-rating alignment in History
+- queue limit now supports 1 through Unlimited
+- added configurable Open Window / Start in Tray behavior
+- improved X-button and system-tray behavior
+- app windows minimize automatically when opening a beatmap
+- additional request/play detection improvements
+- general UI and usability improvements
+
+---
+
 ## Setup
 
 1. Open **osu! Requests**
@@ -156,17 +171,13 @@ That's basically it.
 
 ### Microsoft Store
 
-**Coming soon**
-
-The Microsoft Store version is currently in certification.
-
-Once it is approved, the Store version will become the recommended download.
+The Microsoft Store release has passed certification and is being published. Once it appears in the Store, it will be the recommended install method.
 
 ### GitHub build
 
-The latest `.exe` can still be used.
+The latest `.exe` can still be used for testing when provided.
 
-Just keep in mind that the current GitHub build is unsigned, so Windows may treat it as an unknown application.
+Just keep in mind that a GitHub build may be unsigned, so Windows may treat it as an unknown application.
 
 ---
 
@@ -195,8 +206,6 @@ The relay stores only the limited account/session information it needs to connec
 The project is still pretty new, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
 
 The public relay is already running, and I'm still actively testing and improving the desktop app.
-
-The next major step is getting the Windows build through Microsoft Store certification so people don't have to deal with unsigned-app warnings.
 
 ---
 
