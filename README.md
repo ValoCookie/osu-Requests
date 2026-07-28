@@ -6,17 +6,19 @@ I originally started this because a friend of mine wanted something for her stre
 
 The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch chat, the app picks it up, adds it to a queue, grabs the map information and requested mods, and sends accepted requests directly to the osu! account you connected.
 
-## ⚠️ Current Windows build
+## 🪟 Current Windows build
 
-The Microsoft Store release has passed certification and is currently being published. Version **1.0.2.0** is the current update build with the latest desktop changes.
+osu! Requests is now available on the **Microsoft Store**. 🎉
 
-The GitHub `.exe` may also be available as an unsigned build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
+The Store version is the recommended way to install the app, since it is distributed through Microsoft's trusted Store infrastructure.
 
-That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
+A new update, **version 1.0.2.0**, is currently going through Microsoft certification. It includes the latest Request History, startup/tray, queue and usability improvements described below.
 
-Please only download builds from this page.
+The GitHub `.exe` may still be available for testing, but it is unsigned. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
 
-I don't recommend turning off Windows security features just to run the app. The Microsoft Store version is the normal/recommended install once it is available in your region.
+That warning is related to the GitHub build not being signed/reputed; it does not automatically mean Windows found malware.
+
+I don't recommend turning off Windows security features just to run the GitHub build. For most users, the Microsoft Store version is the recommended install.
 
 ---
 
@@ -140,16 +142,22 @@ The setting is saved for future launches.
 
 ## What's new in 1.0.2.0
 
+Version **1.0.2.0** is currently in Microsoft certification.
+
+It includes:
+
 - improved Request History with clickable osu! links
 - added per-entry **COPY** buttons
 - previous requests can be reopened without affecting the active queue
 - improved star-rating alignment in History
 - queue limit now supports 1 through Unlimited
-- added configurable Open Window / Start in Tray behavior
+- configurable Open Window / Start in Tray behavior
 - improved X-button and system-tray behavior
 - app windows minimize automatically when opening a beatmap
 - additional request/play detection improvements
 - general UI and usability improvements
+
+Once certification finishes, this update will replace the currently published Store build.
 
 ---
 
@@ -171,13 +179,22 @@ That's basically it.
 
 ### Microsoft Store
 
-The Microsoft Store release has passed certification and is being published. Once it appears in the Store, it will be the recommended install method.
+✅ **osu! Requests is now available on the Microsoft Store.**
+
+The Microsoft Store is the recommended way to install osu! Requests.
+
+The latest update, **version 1.0.2.0**, is currently in certification and will be released after it passes Microsoft's review.
+
+**Microsoft Store:**  
+[Download osu! Requests from the Microsoft Store](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
 
 ### GitHub build
 
-The latest `.exe` can still be used for testing when provided.
+The latest `.exe` may also be available here for testing.
 
-Just keep in mind that a GitHub build may be unsigned, so Windows may treat it as an unknown application.
+Keep in mind that the GitHub build is unsigned, so Windows SmartScreen or Smart App Control may treat it as an unknown application.
+
+You should not need to disable Windows security features to use osu! Requests; the Microsoft Store build is the recommended option.
 
 ---
 
@@ -205,7 +222,9 @@ The relay stores only the limited account/session information it needs to connec
 
 The project is still pretty new, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
 
-The public relay is already running, and I'm still actively testing and improving the desktop app.
+osu! Requests is now publicly available through the Microsoft Store, the Cloudflare relay is running, and development is continuing.
+
+Version **1.0.2.0** is currently going through Microsoft certification with the latest desktop improvements.
 
 ---
 
