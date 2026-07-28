@@ -1,22 +1,22 @@
 # osu! Requests
 
-A small Windows app I made to handle osu! map requests from Twitch chat without having to constantly copy links around while streaming.
+A small Windows app I made for handling osu! map requests from Twitch chat without having to constantly copy links around while streaming.
 
-The idea is pretty simple: connect Twitch, connect the osu! account where you want to receive requests, and leave the app running. When someone sends a supported beatmap link in chat, osu! Requests picks it up, adds it to the queue, grabs the map information, and sends the request to you through osu! chat.
+I originally started this because a friend of mine wanted something for her stream after ronniabot wasn't working properly in lazer, and it slowly turned into a proper little desktop app.
 
-It started as something I wanted to make for a friends stream and slowly turned into a proper little desktop app.
+The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch chat, the app picks it up, adds it to a queue, grabs the map information and requested mods, and sends accepted requests directly to the osu! account you connected.
 
 ## ⚠️ Current Windows build
 
-The Microsoft Store version is currently being prepared for certification.
+The Microsoft Store version is currently in certification.
 
-Until that is approved, the GitHub `.exe` is an unsigned build. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
+In the meantime, the GitHub `.exe` is available, but it is unsigned. Because of that, Windows SmartScreen or Smart App Control may warn about it or block it on some PCs.
 
 That warning is related to the build not being signed/reputed yet; it does not automatically mean Windows found malware.
 
 Please only download builds from this page.
 
-I don't recommend turning off Windows security features just to run the app. Once the Microsoft Store release is approved, that will become the normal/recommended way to install the app.
+I don't recommend turning off Windows security features just to run the app. Once the Microsoft Store version is approved, that will become the normal/recommended way to install it.
 
 ---
 
@@ -29,9 +29,10 @@ osu! Requests watches your Twitch chat for osu! beatmap links and builds a reque
 You can:
 
 - open or close requests whenever you need to
-- set a queue limit from 10 to unlimited
+- set a queue limit from 1 to unlimited
 - move to the next request
 - copy the current map link
+- open the current map directly in osu!
 - view previous requests
 - clear the queue
 - keep existing requests even after closing submissions
@@ -40,13 +41,35 @@ The streamer can still submit a map while the queue is closed or full.
 
 Duplicate requests are also caught automatically so the same map doesn't keep getting added.
 
+When a map is opened from the request window, it can be removed from the active queue while still remaining available in request history.
+
+The app also minimizes its windows after opening a map so osu! can take focus without the request window staying in the way.
+
+### Request history
+
+The History window keeps the requests received during the current app session, including maps that have already left the active queue.
+
+Each history entry shows the map information, requester, requested mods and star rating.
+
+The original osu! beatmap link is also kept in History.
+
+You can:
+
+- click the map link to open it directly in osu!stable or osu!lazer
+- copy the map link with the **COPY** button
+- reopen an older requested map without changing the current queue
+
+Opening a map from History minimizes both the History window and the main osu! Requests window so osu! can take focus.
+
+Star ratings are kept in their own aligned column to make the History list easier to scan.
+
 ### Map info
 
 For supported maps, the app can show things like:
 
 - artist and song title
 - mapper
-- difficulty
+- exact difficulty
 - star rating
 - BPM and length
 - AR, OD, CS and HP
@@ -102,6 +125,17 @@ Accepted requests are then sent automatically through osu! chat by the relay acc
 
 Because the actual delivery happens through osu! chat rather than by controlling the game window, the app isn't tied specifically to one desktop client and is intended to work with both osu!stable and osu!lazer.
 
+### App startup
+
+The **APP STARTUP** button lets you choose how osu! Requests should behave when it launches.
+
+You can choose between:
+
+- **Open window** — launch the app normally and close it completely when pressing X
+- **System tray** — start the app in the Windows system tray and return it to the tray when pressing X
+
+The setting is saved for future launches.
+
 ---
 
 ## Setup
@@ -124,7 +158,7 @@ That's basically it.
 
 **Coming soon**
 
-The Windows Store build is currently being prepared for Microsoft certification.
+The Microsoft Store version is currently in certification.
 
 Once it is approved, the Store version will become the recommended download.
 
@@ -158,11 +192,11 @@ The relay stores only the limited account/session information it needs to connec
 
 ## Project status
 
-This is still a pretty new project, so I'm actively testing it and fixing weird edge cases as people find them.
+The project is still pretty new, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
 
-The public relay is already running. The next major step is getting the Windows build through Microsoft Store certification so people don't have to deal with unsigned-app warnings.
+The public relay is already running, and I'm still actively testing and improving the desktop app.
 
-Bug reports and feedback are very welcome.
+The next major step is getting the Windows build through Microsoft Store certification so people don't have to deal with unsigned-app warnings.
 
 ---
 
