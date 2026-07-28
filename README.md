@@ -212,6 +212,20 @@ The relay stores only the limited account/session information it needs to connec
 
 ---
 
+## Acknowledgements
+
+osu! Requests got better thanks to a few people who helped test it at different stages of development, report bugs, try weird edge cases, and give feedback along the way. 💜
+
+Special thanks to:
+
+- **@ToxicTheTrashPanda**
+- **@syvatzia**
+- **@ValoKarma**
+
+for helping test osu! Requests throughout development and for all the bug reports, feedback, ideas, and general chaos testing.
+
+---
+
 ## Project status
 
 The project is still pretty new, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
