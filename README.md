@@ -10,16 +10,11 @@ The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch
 
 osu! Requests is now available on the **Microsoft Store**. 🎉
 
-The Store version is the recommended way to install the app, since it is distributed through Microsoft's trusted Store infrastructure.
+The currently published Store version is the recommended install for most users.
 
-A new update, **version 1.0.2.0**, is currently going through Microsoft certification. It includes the latest Request History, startup/tray, queue and usability improvements described below.
+Version **1.0.2.0** is currently going through Microsoft certification and includes the latest Request History, startup/tray, queue and usability improvements.
 
-If you want the full latest update immediately, you can download the newest build directly from this GitHub page. Otherwise, the same update will appear on the Microsoft Store once Microsoft finishes certifying it.
-
-*The GitHub build is unsigned, so Windows SmartScreen or Smart App Control may warn about or block it. For the simplest installation experience, use the Microsoft Store version.*
-
-I don't recommend turning off Windows security features just to run the GitHub build.
-
+The newest build is also available directly from GitHub while the Store update is being reviewed.
 ---
 
 ## What it does
