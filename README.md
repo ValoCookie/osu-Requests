@@ -219,7 +219,7 @@ osu! Requests got better thanks to a few people who helped test it at different 
 Special thanks to:
 
 - **@ToxicTheTrashPanda**
-- **@syvatzia**
+- **@Syvatzia**
 - **@ValoKarma**
 
 for helping test osu! Requests throughout development and for all the bug reports, feedback, ideas, and general chaos testing.
