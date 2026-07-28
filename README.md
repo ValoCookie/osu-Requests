@@ -186,8 +186,6 @@ The latest update, **version 1.0.2.0**, is currently in certification and will a
 
 The latest `.exe` is available here for anyone who wants the newest version before the Microsoft Store update finishes certification.
 
-So if you want the full latest update immediately, download it from this GitHub page. Otherwise, you can simply wait for the Microsoft Store version to update.
-
 *The GitHub build is unsigned, so Windows SmartScreen or Smart App Control may warn about or block it. For the simplest installation experience, use the Microsoft Store version.*
 
 You should not need to disable Windows security features to use osu! Requests.
