@@ -445,19 +445,6 @@ That's basically it. 💜
 
 ---
 
-# Download
-
-## Microsoft Store
-
-✅ **osu! Requests is available on the Microsoft Store.**
-
-The Microsoft Store is the recommended installation method.
-
-[**Download osu! Requests from the Microsoft Store**](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
-
-The newest update, **version 1.0.3.0**, is currently being uploaded/submitted to the Microsoft Store and will become available there after Microsoft's submission and certification process is complete.
-
----
 
 ## GitHub build
 
