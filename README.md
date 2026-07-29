@@ -61,9 +61,7 @@ The app supports:
 
 You can choose your preferred client from **Preferences**.
 
-When a queued map is opened, osu! Requests can remove that exact map from the **active queue** while keeping it safely stored in **History**.
-
-There is a short safety delay before the request advances so the map has time to open correctly before the queue changes.
+When a queued map is opened, osu! Requests removes that exact map from the **active queue** after a short safety delay while keeping it safely stored in **History**.
 
 The app also watches supported osu!stable/lazer client activity so it can detect when a queued beatmap link is opened from inside osu! itself.
 
@@ -166,32 +164,12 @@ It includes:
 - feedback when requests are closed
 - feedback when the queue is full
 - duplicate-request messages
-- customizable queue commands
+- customizable queue command aliases
 - configurable queue reminders
 - viewer-specific queue limits
 - role-based request modes
 - excluded-user filtering
 - optional Channel Points request mode
-
----
-
-# Queue commands
-
-The default Twitch command for checking the active queue is:
-
-`!queue`
-
-The command is customizable from **Preferences**.
-
-You can also configure multiple aliases.
-
-For example:
-
-`!queue, !maps, !requests`
-
-Each alias works independently.
-
-This lets viewers check the current active queue without the streamer having to explain it manually every few minutes. :)
 
 ---
 
@@ -217,7 +195,7 @@ This controls how many maps one viewer can have waiting in the active queue at t
 
 It is independent from the total queue limit.
 
-For example, you could have:
+For example:
 
 - Total queue limit: **10**
 - Per-user limit: **2**
@@ -244,21 +222,25 @@ This helps keep the queue visible in chat without the streamer having to repeate
 
 The **PREFERENCES** window keeps the stream-specific request settings together.
 
-## Queue commands
+## Queue command aliases
 
-Choose the Twitch commands viewers can use to display the queue.
+The default Twitch command for checking the active queue is:
 
-Multiple aliases can be separated with commas.
+`!queue`
 
-Example:
+You can change it or add multiple aliases separated by commas.
+
+For example:
 
 `!queue, !maps, !requests`
+
+Any configured alias can be used by viewers to display the current active queue.
 
 ---
 
 ## Preferred osu! app
 
-Choose which osu! client should receive links opened through osu! Requests:
+Choose which osu! client should receive links opened through osu! Requests.
 
 ### Windows Default
 
@@ -296,11 +278,11 @@ Specific Twitch users can be added to the **Excluded Users** list.
 
 Requests from those users are ignored until they are removed from the list.
 
-This gives the streamer a persistent app-side request filter without needing to block someone from Twitch chat entirely.
+This gives the streamer an app-side request filter without needing to block someone from Twitch chat entirely.
 
 ---
 
-# Request modes
+## Request modes
 
 osu! Requests can restrict map requests based on Twitch roles.
 
@@ -318,7 +300,7 @@ The broadcaster is always allowed through the role filter.
 
 ---
 
-# Channel Points only request mode
+## Channel Points only request mode
 
 The app also supports a **Channel Points Only Request Mode**.
 
@@ -364,7 +346,7 @@ The desktop app does not contain the private sender-account credentials.
 
 # App startup
 
-The **APP STARTUP** button controls how osu! Requests behaves when Windows launches the app.
+The **APP STARTUP** button controls how osu! Requests behaves when it launches.
 
 There are two modes.
 
@@ -392,7 +374,7 @@ The selected startup behavior is saved for future launches.
 
 **Version 1.0.3.0** is the latest desktop build and is currently being uploaded/submitted to the Microsoft Store.
 
-This update includes a pretty large collection of stream-management and quality-of-life improvements:
+This update includes a pretty large collection of stream-management and quality-of-life improvements.
 
 ### Request History
 
@@ -427,9 +409,9 @@ This update includes a pretty large collection of stream-management and quality-
 - customizable queue command aliases
 - maximum star-rating filter
 - excluded-user list
-- Subscriber-only request option
-- VIP-only request option
-- Moderator-only request option
+- Subscriber request filter
+- VIP request filter
+- Moderator request filter
 - combined role filtering
 - Channel Points only request mode
 
