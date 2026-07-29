@@ -6,80 +6,135 @@ I originally started this because a friend of mine wanted something for her stre
 
 The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch chat, the app picks it up, adds it to a queue, grabs the map information and requested mods, and sends accepted requests directly to the osu! account you connected.
 
-## 🪟 Current Windows build
-
-osu! Requests is now available on the **Microsoft Store**. 🎉
-
-The currently published Store version is the recommended install for most users.
-
-Version **1.0.2.0** is currently going through Microsoft certification and includes the latest Request History, startup/tray, queue and usability improvements.
-
-The newest build is also available directly from GitHub while the Store update is being reviewed.
 ---
 
-## What it does
+## 🪟 Current Windows build
 
-### Map requests
+osu! Requests is available on the **Microsoft Store**. 🎉
 
-osu! Requests watches your Twitch chat for osu! beatmap links and builds a request queue automatically.
+The Microsoft Store version is the recommended install for most users.
+
+The latest desktop build is **version 1.0.3.0**, which is currently being uploaded/submitted to the Microsoft Store. It includes the newest Request History, request filters, osu! client selection, queue-management, startup/tray and general usability improvements.
+
+[**Download osu! Requests from the Microsoft Store**](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
+
+The newest build can also be made available directly through GitHub while the Microsoft Store update is being processed.
+
+---
+
+# What it does
+
+## Map requests
+
+osu! Requests watches your Twitch chat for osu! beatmap links and automatically builds a request queue.
 
 You can:
 
 - open or close requests whenever you need to
-- set a queue limit from 1 to unlimited
-- move to the next request
+- set the overall queue limit from **1 to Unlimited**
+- set a separate **per-user queue limit**
+- move to the next request manually
 - copy the current map link
 - open the current map directly in osu!
-- view previous requests
-- clear the queue
+- view previous requests in History
+- reopen older maps without changing the active queue
+- clear the active queue separately from History
 - keep existing requests even after closing submissions
 
-The streamer can still submit a map while the queue is closed or full.
+Duplicate requests are detected automatically so the same map does not keep getting added during the same session.
 
-Duplicate requests are also caught automatically so the same map doesn't keep getting added.
+A map that has already been accepted remains protected from duplicate requests while it exists in History.
 
-When a map is opened from the request window, it can be removed from the active queue while still remaining available in request history.
+**CLEAR HISTORY** resets that session duplicate memory.
 
-The app also minimizes its windows after opening a map so osu! can take focus without the request window staying in the way.
+---
 
-### Request history
+# Opening maps in osu!
 
-The History window keeps the requests received during the current app session, including maps that have already left the active queue.
+Requested maps can be opened directly from osu! Requests.
 
-Each history entry shows the map information, requester, requested mods and star rating.
+The app supports:
 
-The original osu! beatmap link is also kept in History.
+- **Windows Default**
+- **osu!stable / Classic**
+- **osu!lazer**
+
+You can choose your preferred client from **Preferences**.
+
+When a queued map is opened, osu! Requests can remove that exact map from the **active queue** while keeping it safely stored in **History**.
+
+There is a short safety delay before the request advances so the map has time to open correctly before the queue changes.
+
+The app also watches supported osu!stable/lazer client activity so it can detect when a queued beatmap link is opened from inside osu! itself.
+
+The goal is simple:
+
+**open the requested map → keep it in History → advance the active queue.**
+
+The main osu! Requests window and History window are automatically minimized when a map is opened so osu! can immediately take focus.
+
+---
+
+# Request History
+
+The **Map Request History** keeps requests received during the current app session, including maps that have already left the active queue.
+
+Each entry keeps useful information such as:
+
+- requester
+- artist and song title
+- difficulty
+- mapper
+- ranking status
+- requested mods
+- star rating
+- request time
+- original osu! beatmap link
+
+The currently active request is clearly marked with **CURRENT**.
+
+Star ratings use their own aligned column so History stays easy to scan even when usernames and map titles have different lengths.
+
+Each entry also has its own **COPY** button.
 
 You can:
 
-- click the map link to open it directly in osu!stable or osu!lazer
-- copy the map link with the **COPY** button
-- reopen an older requested map without changing the current queue
+- click the map link to open it directly in osu!
+- copy the original link
+- reopen an older request
+- keep the current active queue untouched when opening an older History entry
 
-Opening a map from History minimizes both the History window and the main osu! Requests window so osu! can take focus.
+Opening a map from History does **not** remove or replace the current active request.
 
-Star ratings are kept in their own aligned column to make the History list easier to scan.
+---
 
-### Map info
+# Map information
 
-For supported maps, the app can show things like:
+For supported maps, osu! Requests can display information such as:
 
 - artist and song title
 - mapper
 - exact difficulty
 - star rating
-- BPM and length
-- AR, OD, CS and HP
+- BPM
+- map length
+- AR
+- OD
+- CS
+- HP
 - max combo
 - object count
 - ranking status
-- genre and language
+- genre
+- language
 
-When someone links a specific difficulty, the app tries to use that exact beatmap instead of just the mapset.
+When someone links a specific difficulty, the app tries to preserve that exact beatmap instead of treating the request as only a beatmapset.
 
-### Mods
+---
 
-Viewers can put mods next to their request and the app keeps them attached to the map.
+# Requested mods
+
+Viewers can put mods next to their request and osu! Requests keeps them attached to the map.
 
 For example:
 
@@ -95,114 +150,358 @@ For example:
 
 `dt hd`
 
-The parser is case-insensitive and is meant to be forgiving about how people type combinations.
+The parser is case-insensitive and intentionally forgiving about how combinations are written.
 
-Those mods are shown with the request and are also included when the map is delivered through osu! chat.
-
-### Twitch stuff
-
-The app connects to Twitch through browser authorization.
-
-It also has:
-
-- automatic confirmation when a request is accepted
-- feedback when the queue is closed or full
-- duplicate request messages
-- `!queue`
-- a queue reminder every 15 minutes while requests are waiting
-- an optional extra reminder with a custom interval
-
-`!queue` lets viewers check the current queue without the streamer having to explain it every five minutes. :)
-
-### Sending requests to osu!
-
-The receiving osu! account is connected through OAuth in the browser.
-
-Accepted requests are then sent automatically through osu! chat by the relay account `valocookie`.
-
-Because the actual delivery happens through osu! chat rather than by controlling the game window, the app isn't tied specifically to one desktop client and is intended to work with both osu!stable and osu!lazer.
-
-### App startup
-
-The **APP STARTUP** button lets you choose how osu! Requests should behave when it launches.
-
-You can choose between:
-
-- **Open window** — launch the app normally and close it completely when pressing X
-- **System tray** — start the app in the Windows system tray and return it to the tray when pressing X
-
-The setting is saved for future launches.
+Requested mods are displayed with the request and are also included when the map is delivered through osu! chat.
 
 ---
 
-## What's new in 1.0.2.0
+# Twitch features
 
-Version **1.0.2.0** is currently in Microsoft certification.
+osu! Requests connects to Twitch through browser authorization.
 
 It includes:
 
-- improved Request History with clickable osu! links
-- added per-entry **COPY** buttons
-- previous requests can be reopened without affecting the active queue
-- improved star-rating alignment in History
-- queue limit now supports 1 through Unlimited
-- configurable Open Window / Start in Tray behavior
-- improved X-button and system-tray behavior
-- app windows minimize automatically when opening a beatmap
-- additional request/play detection improvements
-- general UI and usability improvements
-
-If you'd like these changes right away, use the latest GitHub build. Otherwise, version 1.0.2.0 will become available through the Microsoft Store once certification is complete.
+- automatic confirmation when a request is accepted
+- feedback when requests are closed
+- feedback when the queue is full
+- duplicate-request messages
+- customizable queue commands
+- configurable queue reminders
+- viewer-specific queue limits
+- role-based request modes
+- excluded-user filtering
+- optional Channel Points request mode
 
 ---
 
-## Setup
+# Queue commands
+
+The default Twitch command for checking the active queue is:
+
+`!queue`
+
+The command is customizable from **Preferences**.
+
+You can also configure multiple aliases.
+
+For example:
+
+`!queue, !maps, !requests`
+
+Each alias works independently.
+
+This lets viewers check the current active queue without the streamer having to explain it manually every few minutes. :)
+
+---
+
+# Queue controls
+
+## Total queue limit
+
+The overall queue can be limited from:
+
+**1 → Unlimited**
+
+Lowering the limit does not delete maps already waiting.
+
+It only prevents new requests from being accepted until the active queue falls below the selected limit.
+
+---
+
+## Per-user limit
+
+The app also has an optional **PER USER LIMIT**.
+
+This controls how many maps one viewer can have waiting in the active queue at the same time.
+
+It is independent from the total queue limit.
+
+For example, you could have:
+
+- Total queue limit: **10**
+- Per-user limit: **2**
+
+That means one viewer cannot fill all ten queue positions by themselves.
+
+The broadcaster is exempt from the per-user limit.
+
+---
+
+## Queue reminder
+
+The automatic Twitch queue reminder can be configured from:
+
+**1 minute → 30 minutes**
+
+The reminder runs while requests are waiting.
+
+This helps keep the queue visible in chat without the streamer having to repeatedly mention it.
+
+---
+
+# Preferences
+
+The **PREFERENCES** window keeps the stream-specific request settings together.
+
+## Queue commands
+
+Choose the Twitch commands viewers can use to display the queue.
+
+Multiple aliases can be separated with commas.
+
+Example:
+
+`!queue, !maps, !requests`
+
+---
+
+## Preferred osu! app
+
+Choose which osu! client should receive links opened through osu! Requests:
+
+### Windows Default
+
+Uses whichever application Windows currently has registered for osu! links.
+
+### Classic
+
+Prefers **osu!stable / classic**.
+
+### Lazer
+
+Prefers **osu!lazer**.
+
+The preference is saved between sessions.
+
+---
+
+## Star rating limit for requests
+
+You can set a maximum star rating for incoming maps.
+
+Setting the limit to:
+
+**0★ — Unlimited**
+
+allows maps of any star rating.
+
+This can be useful for streams where you want chat requests to stay within a particular difficulty range.
+
+---
+
+## Excluded users
+
+Specific Twitch users can be added to the **Excluded Users** list.
+
+Requests from those users are ignored until they are removed from the list.
+
+This gives the streamer a persistent app-side request filter without needing to block someone from Twitch chat entirely.
+
+---
+
+# Request modes
+
+osu! Requests can restrict map requests based on Twitch roles.
+
+Available role filters include:
+
+- **Subscribers**
+- **VIPs**
+- **Moderators**
+
+When more than one role is selected, viewers matching **any** selected role may request.
+
+For example, enabling Subscribers and VIPs means either a subscriber **or** a VIP can submit maps.
+
+The broadcaster is always allowed through the role filter.
+
+---
+
+# Channel Points only request mode
+
+The app also supports a **Channel Points Only Request Mode**.
+
+When enabled, map requests are accepted through a selected Twitch Channel Point reward instead of normal chat messages.
+
+The selected reward needs to have **viewer text input enabled**, because the viewer pastes the osu! beatmap link into the redemption message.
+
+This lets streamers turn map requests into a Twitch reward without needing a separate bot command system.
+
+---
+
+# How To
+
+osu! Requests includes a built-in **HOW TO** window.
+
+It gives a quick reference for both viewers and the streamer, including:
+
+- how viewers request maps
+- supported mod syntax
+- duplicate-request behavior
+- the currently configured queue command
+- how the per-user limit works
+- streamer exemptions
+- what happens when a requested map is opened
+
+So the basic usage rules are available directly inside the app instead of living only in this README.
+
+---
+
+# Sending requests to osu!
+
+The receiving osu! account is connected through OAuth in the browser.
+
+Accepted requests are delivered automatically through osu! chat by the relay account:
+
+`valocookie`
+
+Because delivery happens through osu! chat rather than by directly controlling the game window, the request-delivery system is designed to work with both **osu!stable** and **osu!lazer**.
+
+The desktop app does not contain the private sender-account credentials.
+
+---
+
+# App startup
+
+The **APP STARTUP** button controls how osu! Requests behaves when Windows launches the app.
+
+There are two modes.
+
+## Open Window
+
+The app behaves like a standard desktop application.
+
+It starts with the main window visible.
+
+Pressing **X** completely closes osu! Requests.
+
+## Start in Tray
+
+The app starts minimized in the Windows system tray.
+
+Pressing **X** sends the application back to the tray instead of closing it.
+
+To fully close osu! Requests while using this mode, choose **Exit** from the tray icon.
+
+The selected startup behavior is saved for future launches.
+
+---
+
+# What's new in 1.0.3.0
+
+**Version 1.0.3.0** is the latest desktop build and is currently being uploaded/submitted to the Microsoft Store.
+
+This update includes a pretty large collection of stream-management and quality-of-life improvements:
+
+### Request History
+
+- redesigned Map Request History
+- clickable osu! beatmap links
+- individual **COPY** buttons
+- aligned star-rating column
+- **CURRENT** request indicator
+- request timestamps
+- reopening previous maps without affecting the active queue
+- separate queue and History clearing
+
+### osu! integration
+
+- direct map opening from osu! Requests
+- support for Windows Default, Classic and Lazer preferences
+- improved exact-map detection
+- queued maps can advance when opened in osu!
+- opened maps remain in History
+- automatic window minimization when opening maps
+
+### Queue controls
+
+- overall queue limit from **1 to Unlimited**
+- optional per-user queue limit
+- configurable queue reminder from **1 to 30 minutes**
+- improved duplicate-request handling
+- clearing History resets session duplicate memory
+
+### Twitch request controls
+
+- customizable queue command aliases
+- maximum star-rating filter
+- excluded-user list
+- Subscriber-only request option
+- VIP-only request option
+- Moderator-only request option
+- combined role filtering
+- Channel Points only request mode
+
+### App usability
+
+- expanded **Preferences**
+- built-in **HOW TO** guide
+- simplified **APP STARTUP** button
+- configurable Open Window / Start in Tray behavior
+- improved X-button behavior
+- improved system-tray behavior
+- general UI cleanup and spacing improvements
+- additional map/request detection improvements
+
+---
+
+# Setup
 
 1. Open **osu! Requests**
 2. Connect your Twitch account
-3. Click **CONNECT OSU!**
-4. Log into the osu! account where you want to receive requests
-5. Authorize the connection
-6. Go back to the app
-7. Open the queue and let people start sending maps
+3. Connect the osu! account where you want to receive requests
+4. Authorize the connection in your browser
+5. Return to osu! Requests
+6. Open **Preferences** and configure any request rules you need
+7. Choose your preferred osu! client if needed
+8. Set your queue and per-user limits
+9. Open the queue
+10. Let chat start sending maps
 
-That's basically it.
+That's basically it. 💜
 
 ---
 
-## Download
+# Download
 
-### Microsoft Store
+## Microsoft Store
 
 ✅ **osu! Requests is available on the Microsoft Store.**
 
-The Microsoft Store is the recommended way to install osu! Requests.
+The Microsoft Store is the recommended installation method.
 
-[Download osu! Requests from the Microsoft Store](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
+[**Download osu! Requests from the Microsoft Store**](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
 
-The latest update, **version 1.0.2.0**, is currently in certification and will appear on the Store after it passes Microsoft's review.
-
-### GitHub build
-
-The latest `.exe` is available here for anyone who wants the newest version before the Microsoft Store update finishes certification.
-
-*The GitHub build is unsigned, so Windows SmartScreen or Smart App Control may warn about or block it. For the simplest installation experience, use the Microsoft Store version.*
-
-You should not need to disable Windows security features to use osu! Requests.
+The newest update, **version 1.0.3.0**, is currently being uploaded/submitted to the Microsoft Store and will become available there after Microsoft's submission and certification process is complete.
 
 ---
 
-## A little about the backend
+## GitHub build
 
-osu! Requests uses a small Cloudflare-hosted relay to handle the connection between the desktop app and the osu! sender account.
+The newest desktop build can also be provided through GitHub while a Microsoft Store update is being processed.
 
-The important part for users is that you **do not** have to run any server yourself.
+Keep in mind that a standalone GitHub `.exe` may be unsigned, so Windows SmartScreen or Smart App Control can warn about or block it on some PCs.
+
+You should not need to disable Windows security features to use osu! Requests.
+
+For the simplest installation experience, use the Microsoft Store build.
+
+---
+
+# A little about the backend
+
+osu! Requests uses a small Cloudflare-hosted relay to handle communication between the desktop application and the osu! sender account.
+
+The important part for normal users is:
+
+**you do not need to run a server yourself.**
 
 Private sender credentials are not included inside the public Windows app.
 
 ---
 
-## Privacy
+# Privacy
 
 The app uses Twitch and osu! OAuth to connect your accounts.
 
@@ -212,7 +511,7 @@ The relay stores only the limited account/session information it needs to connec
 
 ---
 
-## Acknowledgements
+# Acknowledgements
 
 osu! Requests got better thanks to a few people who helped test it at different stages of development, report bugs, try weird edge cases, and give feedback along the way. 💜
 
@@ -226,18 +525,18 @@ for helping test osu! Requests throughout development and for all the bug report
 
 ---
 
-## Project status
+# Project status
 
-The project is still pretty new, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
+osu! Requests is still a pretty new project, so feedback, bug reports, weird edge cases and suggestions are very welcome. :)
 
-osu! Requests is now publicly available through the Microsoft Store, the Cloudflare relay is running, and development is continuing.
+The app is publicly available through the Microsoft Store, the Cloudflare relay is running, and development is continuing.
 
-Version **1.0.2.0** is currently going through Microsoft certification with the latest desktop improvements.
+The latest desktop build is **version 1.0.3.0**, which is currently being uploaded/submitted to the Microsoft Store.
 
 ---
 
-## Disclaimer
+# Disclaimer
 
 osu! Requests is an independent project.
 
-It is not affiliated with or endorsed by ppy Pty Ltd., osu!, Twitch, or Twitch Interactive, Inc.
+It is not affiliated with or endorsed by **ppy Pty Ltd., osu!, Twitch, or Twitch Interactive, Inc.**
