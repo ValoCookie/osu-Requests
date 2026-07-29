@@ -8,17 +8,43 @@ The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch
 
 ---
 
+> ### 🎥 Streamer tools by ValoCookie
+> **osu!Requests** handles Twitch → osu! map requests.
+> Looking for a general pre-stream checklist and health-check app too? **[Check out StreamFlight →](https://github.com/ValoCookie/streamflight)**
+
+---
+
 ## 🪟 Current Windows build
 
 osu! Requests is available on the **Microsoft Store**. 🎉
 
 The Microsoft Store version is the recommended install for most users.
 
-The latest desktop build is **version 1.0.3.0**, which is currently being uploaded/submitted to the Microsoft Store. It includes the newest Request History, request filters, osu! client selection, queue-management, startup/tray and general usability improvements.
+The current **Microsoft Store stable build is version 1.0.3.0**.
 
 [**Download osu! Requests from the Microsoft Store**](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
 
-The newest build can also be made available directly through GitHub while the Microsoft Store update is being processed.
+Newer development builds are published through **GitHub Releases** first, so smaller fixes and beta updates do not have to wait for a Microsoft Store submission.
+
+[**Open osu! Requests releases on GitHub →**](https://github.com/ValoCookie/osulazer-twitch-map-request-bot/releases)
+
+The current development line is **v1.2.1**, adding OBS browser overlays, optional review-first handling, richer map filters, queue management, recovery/diagnostics and session stats.
+
+---
+
+## 🧪 Current GitHub development build — v1.2.1
+
+The GitHub build moves faster than the Microsoft Store release and currently adds:
+
+- **OBS Browser Sources** for Current Map, Compact Queue and Queue Status — use one, two or all three at once
+- optional **Review Requests Before Queue** mode with Accept / Reject / Move Up / Move Down
+- an **Active Queue Manager** for reordering and removing queued maps without deleting History
+- optional map filters for **length, BPM, AR, CS and OD** — leave them blank for unrestricted requests
+- rank-status and game-mode filters
+- crash/session recovery for the active queue, pending review and History
+- redacted diagnostics export
+- session statistics with a copyable summary
+- shared Twitch permission support for the optional **StreamFlight** integration
 
 ---
 
@@ -272,6 +298,23 @@ This can be useful for streams where you want chat requests to stay within a par
 
 ---
 
+## Map filters
+
+The GitHub development build includes optional Min/Max filters for:
+
+- star rating
+- map length
+- BPM
+- AR
+- CS
+- OD
+
+**Leave Length, BPM, AR, CS and OD blank to allow any map.** Only fill in Min/Max values when you deliberately want to restrict requests.
+
+You can also control accepted ranking statuses and osu! game modes.
+
+---
+
 ## Excluded users
 
 Specific Twitch users can be added to the **Excluded Users** list.
@@ -279,6 +322,16 @@ Specific Twitch users can be added to the **Excluded Users** list.
 Requests from those users are ignored until they are removed from the list.
 
 This gives the streamer an app-side request filter without needing to block someone from Twitch chat entirely.
+
+---
+
+## Request handling
+
+By default, accepted viewer requests can go directly into the active queue.
+
+Enable **Review requests before adding them to the active queue** when you want incoming maps to wait in Pending first, where you can accept, reject or reorder them.
+
+There are no genre-style request presets to configure — request restrictions live in the normal map filters so the viewer workflow stays straightforward.
 
 ---
 
@@ -309,6 +362,18 @@ When enabled, map requests are accepted through a selected Twitch Channel Point 
 The selected reward needs to have **viewer text input enabled**, because the viewer pastes the osu! beatmap link into the redemption message.
 
 This lets streamers turn map requests into a Twitch reward without needing a separate bot command system.
+
+---
+
+# OBS browser overlays
+
+The GitHub development build can host local Browser Source overlays for:
+
+- **Current Map**
+- **Compact Queue**
+- **Queue Status**
+
+Each overlay has its own local URL. Add any of them to OBS as separate Browser Sources — **you can use one or multiple overlays at the same time**.
 
 ---
 
@@ -370,9 +435,9 @@ The selected startup behavior is saved for future launches.
 
 ---
 
-# What's new in 1.0.3.0
+# Microsoft Store stable — what's new in 1.0.3.0
 
-**Version 1.0.3.0** is the latest desktop build and is currently being uploaded/submitted to the Microsoft Store.
+**Version 1.0.3.0** is the current Microsoft Store stable build.
 
 This update includes a pretty large collection of stream-management and quality-of-life improvements.
 
@@ -448,7 +513,7 @@ That's basically it. 💜
 
 ## GitHub build
 
-The newest desktop build can also be provided through GitHub while a Microsoft Store update is being processed.
+Newer desktop builds are published through GitHub Releases first so beta fixes and smaller updates can ship without waiting for the Microsoft Store review cycle.
 
 Keep in mind that a standalone GitHub `.exe` may be unsigned, so Windows SmartScreen or Smart App Control can warn about or block it on some PCs.
 
@@ -500,7 +565,7 @@ osu! Requests is still a pretty new project, so feedback, bug reports, weird edg
 
 The app is publicly available through the Microsoft Store, the Cloudflare relay is running, and development is continuing.
 
-The latest desktop build is **version 1.0.3.0**, which is currently being uploaded/submitted to the Microsoft Store.
+The Microsoft Store stable build is **1.0.3.0**. The current GitHub development line is **1.2.1**.
 
 ---
 
