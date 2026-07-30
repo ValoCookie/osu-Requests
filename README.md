@@ -18,28 +18,32 @@ The idea is pretty straightforward: viewers paste an osu! beatmap link in Twitch
 
 osu! Requests is available on the **Microsoft Store**. 🎉
 
-The Microsoft Store version is the recommended install for most users.
+The Microsoft Store remains available as the slower **stable release channel**.
 
-The current **Microsoft Store stable build is version 1.0.3.0**.
+For the newest features and smaller updates, use the **GitHub Releases** build.
 
 [**Download osu! Requests from the Microsoft Store**](https://apps.microsoft.com/detail/9NBFQXB0ZDRT?hl=en-us&gl=GB&ocid=pdpshare)
 
 Newer development builds are published through **GitHub Releases** first, so smaller fixes and beta updates do not have to wait for a Microsoft Store submission.
 
-[**Open osu! Requests releases on GitHub →**](https://github.com/ValoCookie/osulazer-twitch-map-request-bot/releases)
+[**Open osu! Requests releases on GitHub →**](https://github.com/ValoCookie/osu-Requests/releases)
 
-The current development line is **v1.2.1**, adding OBS browser overlays, optional review-first handling, richer map filters, queue management, recovery/diagnostics and session stats.
+The current development line is **v1.2.5**, adding customizable OBS browser overlays, `!np`, PP filtering, optional review-first handling, richer map filters, queue management, recovery/diagnostics and session stats.
 
 ---
 
-## 🧪 Current GitHub development build — v1.2.1
+## 🧪 Current GitHub development build — v1.2.5
 
 The GitHub build moves faster than the Microsoft Store release and currently adds:
 
-- **OBS Browser Sources** for Current Map, Compact Queue and Queue Status — use one, two or all three at once
+- **three independent OBS Browser Sources**: Current Map, Compact Queue and Map Requests Open — use one, two or all three at once
+- **overlay customization** for colors, background opacity, streamer label, queue growth direction, custom sizing, left/right snapping and X/Y positioning
+- improved **Current Map overlay positioning**, so the visible card can be placed where you want inside its OBS Browser Source
+- Twitch chat command **`!np`** so viewers can see the current / most recently opened requested map
 - optional **Review Requests Before Queue** mode with Accept / Reject / Move Up / Move Down
 - an **Active Queue Manager** for reordering and removing queued maps without deleting History
-- optional map filters for **length, BPM, AR, CS and OD** — leave them blank for unrestricted requests
+- optional map filters for **length, BPM, AR, CS, OD and PP** — leave them blank for unrestricted requests
+- **Min/Max PP filtering** based on the estimated maximum PP for a 100% FC on the exact requested difficulty, including requested mods
 - rank-status and game-mode filters
 - crash/session recovery for the active queue, pending review and History
 - redacted diagnostics export
@@ -191,6 +195,7 @@ It includes:
 - feedback when the queue is full
 - duplicate-request messages
 - customizable queue command aliases
+- built-in **`!np` now-playing command**
 - configurable queue reminders
 - viewer-specific queue limits
 - role-based request modes
@@ -262,6 +267,14 @@ For example:
 
 Any configured alias can be used by viewers to display the current active queue.
 
+### Now playing command
+
+`!np` is built in for viewers who want to check the map currently being played / most recently opened from the request workflow.
+
+The response includes the map information and osu! link when available. The command has a short per-viewer cooldown to prevent chat spam.
+
+`!np` is reserved by osu! Requests and is separate from the customizable queue aliases.
+
 ---
 
 ## Preferred osu! app
@@ -308,8 +321,13 @@ The GitHub development build includes optional Min/Max filters for:
 - AR
 - CS
 - OD
+- PP
 
-**Leave Length, BPM, AR, CS and OD blank to allow any map.** Only fill in Min/Max values when you deliberately want to restrict requests.
+**Leave Length, BPM, AR, CS, OD and PP blank to allow any map.** Only fill in Min/Max values when you deliberately want to restrict requests.
+
+For PP filtering, osu! Requests uses the **estimated maximum PP for a 100% FC on the exact requested difficulty**, including requested mods such as `+HDDT`.
+
+If PP filtering is enabled, a request needs to identify a specific difficulty so the app can evaluate it reliably.
 
 You can also control accepted ranking statuses and osu! game modes.
 
@@ -371,9 +389,21 @@ The GitHub development build can host local Browser Source overlays for:
 
 - **Current Map**
 - **Compact Queue**
-- **Queue Status**
+- **Map Requests Open**
 
 Each overlay has its own local URL. Add any of them to OBS as separate Browser Sources — **you can use one or multiple overlays at the same time**.
+
+Overlay appearance and placement can be customized from Preferences, including:
+
+- background, text, accent and open-status colors
+- background opacity
+- optional streamer label / Twitch username
+- custom overlay sizing
+- Compact Queue growth from **top → bottom** or **bottom → top**
+- snap visible overlay content to the **left** or **right** side
+- **X / Y offsets** for fine positioning inside the OBS Browser Source
+
+The left/right snap and X/Y controls also apply to **Current Map**, so the visible card does not have to sit in one fixed location or visually stretch across a wider Browser Source.
 
 ---
 
@@ -565,7 +595,7 @@ osu! Requests is still a pretty new project, so feedback, bug reports, weird edg
 
 The app is publicly available through the Microsoft Store, the Cloudflare relay is running, and development is continuing.
 
-The Microsoft Store stable build is **1.0.3.0**. The current GitHub development line is **1.2.1**.
+The Microsoft Store remains the slower stable channel. The current GitHub development line is **v1.2.5**.
 
 ---
 
