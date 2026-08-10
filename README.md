@@ -11,7 +11,7 @@
 ## Latest release
 
 <!-- AUTO_VERSION_START -->
-**Version 1.5.20 is currently available.**
+**Version 1.6.0 is currently available.**
 <!-- AUTO_VERSION_END -->
 
 [**Open the latest GitHub releases →**](https://github.com/ValoCookie/osu-Requests/releases)
