@@ -11,7 +11,7 @@
 ## Latest release
 
 <!-- AUTO_VERSION_START -->
-**Version 1.5.19 is currently available.**
+**Version 1.5.20 is currently available.**
 <!-- AUTO_VERSION_END -->
 
 [**Open the latest GitHub releases →**](https://github.com/ValoCookie/osu-Requests/releases)
@@ -27,7 +27,7 @@
 - natural mod detection including abbreviations and names around the map link
 - stable/lazer/Windows Default opening options
 - optional PP, stars, length, BPM, AR, CS, OD, status and mode filters
-- viewer `!myq`, editable `!skin` and fast `!np`
+- viewer `!myq`, editable `!skin` and instant-map `!np` backed by the managed local live-data engine
 
 ### OBS and stream overlays
 
@@ -39,8 +39,16 @@
 - Map Timeline
 - Profile Stats builder
 - Ranked Play tracker
+- managed live overlay library/dashboard for compatible tosu counters
 
 The overlay system is designed around configurable components rather than one fixed layout.
+
+
+### Managed live engine
+
+Current development builds can package a pinned official **tosu** Windows runtime inside the normal single osuStreamDeck executable. osu!StreamDeck starts/reuses that localhost engine automatically for stable/lazer map state and gameplay telemetry. The upstream tosu component remains a separate program licensed under **LGPL-3.0**; ValoCookie does not claim authorship of it.
+
+The build pins **tosu v4.25.1**, verifies the official runtime archive before packaging, and includes the relevant license/source notices. See **[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)** for the exact source tag and license details.
 
 ### Updates
 
@@ -69,7 +77,7 @@ osu!StreamDeck uses Twitch and osu! OAuth for the account connections needed by 
 ## Project status
 
 <!-- AUTO_STATUS_START -->
-The latest public release is **v1.5.19**.
+The latest public release is **v1.5.20**.
 <!-- AUTO_STATUS_END -->
 
 Feedback and bug reports are welcome.
@@ -83,3 +91,7 @@ Copyright © 2026 ValoCookie.
 **Original Creator and Official Publisher: ValoCookie.**
 
 osu! and related marks belong to ppy Pty Ltd. osu!StreamDeck is an independent community project and is not affiliated with or endorsed by ppy.
+
+## Bug reports
+
+Use the **BUG REPORT** button inside osu!StreamDeck or open a GitHub Issue using the included bug report template. Never post Twitch/relay tokens or passwords.
