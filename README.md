@@ -11,7 +11,7 @@
 ## Latest release
 
 <!-- AUTO_VERSION_START -->
-**Version 1.6.0 is currently available.**
+**Version 1.6.12 is currently available.**
 <!-- AUTO_VERSION_END -->
 
 [**Open the latest GitHub releases →**](https://github.com/ValoCookie/osu-Requests/releases)
@@ -77,7 +77,7 @@ osu!StreamDeck uses Twitch and osu! OAuth for the account connections needed by 
 ## Project status
 
 <!-- AUTO_STATUS_START -->
-The latest public release is **v1.5.20**.
+The latest public release is **v1.6.12**.
 <!-- AUTO_STATUS_END -->
 
 Feedback and bug reports are welcome.
