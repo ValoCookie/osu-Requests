@@ -11,7 +11,7 @@
 ## Latest release
 
 <!-- AUTO_VERSION_START -->
-**Version 1.6.12 is currently available.**
+**Version 2.1.0 is currently available.**
 <!-- AUTO_VERSION_END -->
 
 [**Open the latest GitHub releases →**](https://github.com/ValoCookie/osu-Requests/releases)
@@ -50,6 +50,14 @@ Current development builds can package a pinned official **tosu** Windows runtim
 
 The build pins **tosu v4.25.1**, verifies the official runtime archive before packaging, and includes the relevant license/source notices. See **[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)** for the exact source tag and license details.
 
+### Patreon supporter linking
+
+- optional Patreon OAuth linking from the in-app Patreon text
+- active paid, trial and gifted ValoCookie memberships can be verified automatically
+- supporter identity does not depend on Patreon and osu! usernames matching
+- Patreon/client secrets remain server-side in the Cloudflare relay
+- technical verification details stay out of normal user-facing pages and remain available through sanitized diagnostics
+
 ### Updates
 
 The app can check for updates while running and show a small non-focus-stealing notification with the ValoCookie update chime. Official release binaries are distributed through this repository.
@@ -70,14 +78,14 @@ The app can check for updates while running and show a small non-focus-stealing 
 
 ## Privacy
 
-osu!StreamDeck uses Twitch and osu! OAuth for the account connections needed by the app. Sensitive tokens are excluded from diagnostics exports.
+osu!StreamDeck uses Twitch and osu! OAuth for the account connections needed by the app. Patreon linking is optional and is used only to verify ValoCookie supporter status. Sensitive tokens and server-side secrets are excluded from diagnostics exports.
 
 ---
 
 ## Project status
 
 <!-- AUTO_STATUS_START -->
-The latest public release is **v1.6.12**.
+The latest public release is **v2.1.0**.
 <!-- AUTO_STATUS_END -->
 
 Feedback and bug reports are welcome.
