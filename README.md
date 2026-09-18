@@ -14,7 +14,7 @@ if you want the pre-stream app too: [StreamFlight](https://github.com/ValoCookie
 **Version 2.2.9 is currently available.**
 <!-- AUTO_VERSION_END -->
 
-[download / releases](https://github.com/ValoCookie/osu-Requests/releases)
+[download / releases](https://github.com/ValoCookie/osuStreamDeck/releases)
 
 ## what it does
 
