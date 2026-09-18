@@ -1,5 +1,7 @@
 # osu!StreamDeck
 
+**osu!StreamDeck is the current name of the app formerly published as osu!Requests.** If Microsoft still shows osu!Requests, that is the old listing for this same app — not a separate project.
+
 this started as a Twitch beatmap request manager and then i kept adding shit to it.
 
 now it handles requests, OBS overlays, the key visualizer, skin commands, Ranked Play stuff and support for both osu!stable and osu!lazer.
