@@ -11,7 +11,7 @@ if you want the pre-stream app too: [StreamFlight](https://github.com/ValoCookie
 ## latest release
 
 <!-- AUTO_VERSION_START -->
-**Version 2.2.9 is currently available.**
+**Version 3.0.0 is currently available.**
 <!-- AUTO_VERSION_END -->
 
 [download / releases](https://github.com/ValoCookie/osuStreamDeck/releases)
@@ -76,7 +76,7 @@ Patreon linking is optional and only used for supporter verification. sensitive 
 ## project status
 
 <!-- AUTO_STATUS_START -->
-The latest public release is **v2.2.8**.
+The latest public release is **v3.0.0**.
 <!-- AUTO_STATUS_END -->
 
 still being worked on. bug reports and feedback are very welcome.
